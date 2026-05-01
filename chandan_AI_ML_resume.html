@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chandan Kumar Sah Teli — Data/AI/ML Intern</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --orange: #FF6200;
+    --orange-light: #FF8C42;
+    --orange-dim: rgba(255,98,0,0.12);
+    --dark: #0A0A0A;
+    --surface: #111111;
+    --surface2: #1A1A1A;
+    --border: rgba(255,98,0,0.2);
+    --text: #E8E8E8;
+    --muted: #888;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media print {
+    body { background: white !important; color: #111 !important; }
+    .page { box-shadow: none !important; margin: 0 !important; max-width: 100% !important; }
+    .tag { border: 1px solid #FF6200 !important; color: #FF6200 !important; background: transparent !important; }
+    .section-label { color: #FF6200 !important; }
+    .cert-icon { background: #fff3ec !important; }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 32px auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(255,98,0,0.08);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--dark);
+    padding: 44px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(255,98,0,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .name {
+    font-family: 'Syne', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--white);
+    line-height: 1.05;
+  }
+  .name span { color: var(--orange); }
+  .role-badge {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: var(--orange-dim);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+  .contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 20px;
+  }
+  .contact-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-item a { color: var(--orange-light); text-decoration: none; }
+  .contact-item a:hover { color: var(--orange); }
+  .dot { color: var(--orange); font-size: 16px; }
+
+  .target-box {
+    background: var(--orange-dim);
+    border: 1px solid var(--orange);
+    border-radius: 3px;
+    padding: 14px 18px;
+    min-width: 200px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .target-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+  .target-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .target-company {
+    font-size: 13px;
+    color: var(--orange-light);
+    margin-top: 2px;
+  }
+
+  /* ── BODY LAYOUT ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+  }
+
+  .main { padding: 36px 40px; border-right: 1px solid var(--border); }
+  .sidebar { padding: 36px 28px; background: var(--surface2); }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 34px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* SUMMARY */
+  .summary-text {
+    font-size: 13.5px;
+    color: #CCC;
+    line-height: 1.75;
+  }
+  .summary-text strong { color: var(--orange-light); font-weight: 500; }
+
+  /* PROJECT CARDS */
+  .project {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .project:hover { border-color: var(--orange); }
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .project-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .project-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .project-link:hover { background: var(--orange-dim); }
+  .project-tech {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--orange-light);
+    margin-bottom: 8px;
+  }
+  .project ul {
+    padding-left: 16px;
+  }
+  .project li {
+    font-size: 12.5px;
+    color: #BBB;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .project li::marker { color: var(--orange); }
+
+  /* EXPERIENCE */
+  .exp-item { margin-bottom: 18px; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .exp-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+  }
+  .exp-company {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .exp-item ul { padding-left: 16px; }
+  .exp-item li {
+    font-size: 12.5px;
+    color: #BBB;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .exp-item li::marker { color: var(--orange); }
+
+  /* ── SIDEBAR ── */
+
+  /* SKILLS */
+  .skill-group { margin-bottom: 18px; }
+  .skill-group-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    color: #CCC;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .tag.hot {
+    background: var(--orange-dim);
+    border-color: rgba(255,98,0,0.5);
+    color: var(--orange-light);
+  }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 14px; }
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .edu-school { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .edu-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    margin-top: 2px;
+  }
+
+  /* CERTS */
+  .cert-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .cert-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--orange-dim);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .cert-name {
+    font-size: 11.5px;
+    color: #CCC;
+    line-height: 1.35;
+  }
+  .cert-issuer {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--orange);
+    margin-top: 2px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+
+  /* GITHUB STAT */
+  .github-box {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .github-box svg { color: var(--orange); flex-shrink: 0; }
+  .github-text { font-family: 'DM Mono', monospace; font-size: 11px; color: #CCC; }
+  .github-text a { color: var(--orange-light); text-decoration: none; }
+  .github-text a:hover { color: var(--orange); }
+
+  .footer {
+    padding: 14px 48px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  .footer span { color: var(--orange); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="name">Chandan Kumar<br/><span>Sah Teli</span></div>
+        <div class="role-badge">Data · AI · Machine Learning</div>
+      </div>
+      <div class="target-box">
+        <div class="target-label">Applying For</div>
+        <div class="target-role">6-Month Paid Internship</div>
+        <div class="target-company">Data / AI / ML — Orange</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#888;margin-top:6px;">📍 Gurgaon · Pre-Final Year</div>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item"><span class="dot">●</span> +91 8851195975</div>
+      <div class="contact-item"><span class="dot">●</span> <a href="mailto:chandansah.ai.dev@gmail.com">chandansah.ai.dev@gmail.com</a></div>
+      <div class="contact-item"><span class="dot">●</span> <a href="https://github.com/ChandanLabs" target="_blank">github.com/ChandanLabs</a></div>
+      <div class="contact-item"><span class="dot">●</span> B.Tech CSE · Aditya University · 2023–Present</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN COLUMN -->
+    <div class="main">
+
+      <!-- SUMMARY -->
+      <div class="section">
+        <div class="section-label">Profile</div>
+        <p class="summary-text">
+          Pre-final year Computer Science student with a focused track in <strong>Data Science, Machine Learning, and Agentic AI</strong>. Hands-on experience building <strong>RAG-based AI systems, LLM-integrated pipelines</strong>, and full-stack AI-powered applications. Certified in <strong>Agentic AI (Google &amp; Kaggle), Data Science (NPTEL), and Generative AI (Google Cloud Vertex AI)</strong>. Passionate about applying ML to real-world data problems with clean, scalable, and reproducible code.
+        </p>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-label">AI / ML Projects</div>
+
+        <div class="project">
+          <div class="project-header">
+            <div class="project-name">Smart Job Recommendation System</div>
+            <a class="project-link" href="https://github.com/ChandanLabs/Smart-Job-Recommendation-System" target="_blank">↗ GitHub</a>
+          </div>
+          <div class="project-tech">Python · RAG · LLM · Vector Embeddings · NLP · Semantic Search</div>
+          <ul>
+            <li>Built an <strong>AI-driven job matching engine</strong> using <strong>Retrieval-Augmented Generation (RAG)</strong> to intelligently align candidate profiles with job descriptions via semantic similarity.</li>
+            <li>Implemented <strong>vector embeddings</strong> and semantic search pipeline to rank and recommend positions beyond simple keyword matching.</li>
+            <li>Applied <strong>NLP preprocessing</strong> and structured data extraction to parse resumes and job postings for intelligent feature representation.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <div class="project-name">CampusGPT — Multimodal AI Learning Platform</div>
+            <a class="project-link" href="https://github.com/ChandanLabs" target="_blank">↗ GitHub</a>
+          </div>
+          <div class="project-tech">Gemini 2.0 Flash API · Agentic AI · React · Node.js · REST APIs · Multimodal</div>
+          <ul>
+            <li>Architected an <strong>agent-based backend</strong> integrating <strong>Gemini 2.0 Flash API</strong> for multimodal document processing, personalized AI tutoring, and automated study scheduling.</li>
+            <li>Designed <strong>LLM orchestration logic</strong> enabling context-aware, multi-turn AI interactions for adaptive learning workflows.</li>
+            <li>Built optimized API endpoints for efficient data handling between frontend and AI inference layer.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <div class="project-name">Real-Time OTP Text Messaging System</div>
+            <a class="project-link" href="https://github.com/ChandanLabs" target="_blank">↗ GitHub</a>
+          </div>
+          <div class="project-tech">Firebase · Real-Time Database · Authentication · Cloud Functions</div>
+          <ul>
+            <li>Developed a real-time application using <strong>Firebase Realtime Database</strong> for instant OTP generation, delivery, and secure validation without user pre-authentication.</li>
+            <li>Integrated cloud-based validation mechanisms ensuring <strong>data integrity and consistent performance</strong> across authentication flows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-label">Experience</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Web Development Intern</div>
+            <div class="exp-date">May 2025 – Jun 2025</div>
+          </div>
+          <div class="exp-company">SkillDzire Technologies Pvt. Ltd., Hyderabad</div>
+          <ul>
+            <li>Built and maintained full-stack web applications using modern development practices and Agile workflows.</li>
+            <li>Managed version control, branching, code reviews, and deployment pipelines via Git/GitHub in a collaborative engineering team.</li>
+            <li>Delivered scalable architecture with clean, production-ready code under real-world deadlines.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-label">Core Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">AI · ML · Data Science</div>
+          <div class="tags">
+            <span class="tag hot">Machine Learning</span>
+            <span class="tag hot">Deep Learning</span>
+            <span class="tag hot">Agentic AI</span>
+            <span class="tag hot">RAG</span>
+            <span class="tag hot">LLMs</span>
+            <span class="tag hot">Generative AI</span>
+            <span class="tag hot">NLP</span>
+            <span class="tag hot">Prompt Engineering</span>
+            <span class="tag hot">Data Science</span>
+            <span class="tag">Statistical Analysis</span>
+            <span class="tag">Vector Embeddings</span>
+            <span class="tag">Semantic Search</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Languages & Data Tools</div>
+          <div class="tags">
+            <span class="tag hot">Python</span>
+            <span class="tag hot">SQL</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Cloud & MLOps</div>
+          <div class="tags">
+            <span class="tag hot">Google Cloud</span>
+            <span class="tag hot">Vertex AI</span>
+            <span class="tag">AWS EC2/S3</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Git/GitHub</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Agile / SDLC</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">CS Foundations</div>
+          <div class="tags">
+            <span class="tag">DSA</span>
+            <span class="tag">OOP</span>
+            <span class="tag">DBMS</span>
+            <span class="tag">OS</span>
+            <span class="tag">Computer Networks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- GITHUB -->
+      <div class="section">
+        <div class="section-label">GitHub</div>
+        <div class="github-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          <div class="github-text">
+            <a href="https://github.com/ChandanLabs" target="_blank">github.com/ChandanLabs</a><br/>
+            AI Job Matching · RAG · Agentic AI
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <div class="section-label">Certifications</div>
+
+        <div class="cert-item">
+          <div class="cert-icon">🤖</div>
+          <div>
+            <div class="cert-name">5-Day Agentic AI Course</div>
+            <div class="cert-issuer">Google &amp; Kaggle</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">📊</div>
+          <div>
+            <div class="cert-name">Data Science for Engineers</div>
+            <div class="cert-issuer">NPTEL</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">☁️</div>
+          <div>
+            <div class="cert-name">Prompt Design in Vertex AI</div>
+            <div class="cert-issuer">Google Cloud</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">🏅</div>
+          <div>
+            <div class="cert-name">Oracle Cloud Infrastructure Foundations</div>
+            <div class="cert-issuer">Oracle · Certified Associate</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">🗄️</div>
+          <div>
+            <div class="cert-name">SQL (Basics)</div>
+            <div class="cert-issuer">HackerRank</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-icon">📈</div>
+          <div>
+            <div class="cert-name">Data Science for Beginners</div>
+            <div class="cert-issuer">Microsoft / Online</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-school">Aditya University, India</div>
+          <div class="edu-date">Sep 2023 – Present (Pre-Final Year)</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Intermediate · Science (Class XII)</div>
+          <div class="edu-school">Himalayan Pyramid College, Nepal</div>
+          <div class="edu-date">May 2021 – Apr 2023</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Available for <span>Immediate Joining</span> · Open to Relocation — <span>Gurgaon</span> · Pre-Final Year Eligible
+  </div>
+
+</div>
+</body>
+</html>
